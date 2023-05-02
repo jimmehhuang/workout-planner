@@ -30,11 +30,11 @@ const getWorkout = async (req, res) => {
 
 // CREATE new workout
 const createWorkout = async (req, res) => {
-    const {title, sets, reps, weight, demo} = req.body
+    const {title, sets, reps, weight, notes} = req.body
 
     // adds a document to mongoDB
     try{
-        const workout = await Workout.create({title, sets, reps, weight, demo})
+        const workout = await Workout.create({title, sets, reps, weight, notes})
         res.status(200).json(workout)
     } catch(error) {
         res.status(400).json({error: error.message})

@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import {useWorkoutContext} from '../hooks/useWorkoutContext'
 
 const AddWorkout = () => {
+  // global state context hook
+  const {dispatch} = useWorkoutContext()
 
   const [title, setTitle] = useState('')
   const [sets, setSets] = useState('')
@@ -37,6 +40,7 @@ const AddWorkout = () => {
         setNotes('')
         setError(null)
         console.log('success!', json)
+        dispatch({type: 'CREATE_WORKOUT', payload: json})
     }
   }
 

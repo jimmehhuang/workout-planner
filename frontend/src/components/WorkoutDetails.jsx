@@ -1,5 +1,6 @@
 import React from 'react'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
+import Moment from 'react-moment'
 
 const WorkoutDetails = ({workout}) => {
   const {dispatch} = useWorkoutContext()
@@ -21,7 +22,7 @@ const WorkoutDetails = ({workout}) => {
         <p className=''>{workout.sets}x{workout.reps}</p>
         <p className=''>Weight: <span>{workout.weight}lbs</span></p>
         <p className=''>{workout.notes}</p>
-        <p>{workout.createdAt}</p>
+        <span>Started <Moment format="MMMM Do YYYY">{workout.createdAt}</Moment></span>
         <button onClick={handleClick}>Delete</button>
     </div>
   )

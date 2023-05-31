@@ -12,6 +12,7 @@ const AddWorkout = () => {
   const [weight, setWeight] = useState('')
   const [notes, setNotes] = useState('')
   const [error, setError] = useState(null)
+  const [emptyField, setEmptyField] = useState([])
 
   const handleSubmit = async (e) => {
     // prevent page refresh
@@ -30,6 +31,7 @@ const AddWorkout = () => {
     console.log(json)
     if(!response.ok) {
         setError(json.error)
+        setEmptyField(json.emptyField)
         console.log(error)
     }
     if(response.ok) {
@@ -39,6 +41,7 @@ const AddWorkout = () => {
         setWeight('')
         setNotes('')
         setError(null)
+        setEmptyField([])
         console.log('success!', json)
         dispatch({type: 'CREATE_WORKOUT', payload: json})
     }
@@ -50,11 +53,11 @@ const AddWorkout = () => {
 
         <label>Name:</label>
         <input type='text' onChange={(e) => setTitle(e.target.value)} value={title}
-        className='w-1/2'/>
+        className={emptyField.includes('title') ? 'border-2 border-red-500 w-1/2' : 'w-1/2'}/>
 
         <label>Sets:</label>
         <input type='number' onChange={(e) => setSets(e.target.value)} value={sets}
-        className='w-1/2'/>
+        className={emptyField.includes('sets') ? 'border-2 border-red-500 w-1/2' : 'w-1/2'}/>
 
         <label>Reps:</label>
         <input type='number' onChange={(e) => setReps(e.target.value)} value={reps}

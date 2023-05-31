@@ -1,7 +1,7 @@
 import { WorkoutContext } from "../context/WorkoutContext";
 import { useContext } from "react";
 
-const useWorkoutContext = () => {
+export const useWorkoutContext = () => {
     // returns the value of the context, w/ state and dispatch function
     const context = useContext(WorkoutContext)
 
@@ -13,5 +13,3 @@ const useWorkoutContext = () => {
     // returns the state
     return context
 }
-
-export default useWorkoutContext

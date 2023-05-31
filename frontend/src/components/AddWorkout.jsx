@@ -48,16 +48,16 @@ const AddWorkout = () => {
   }
 
   return (
-    <form className='flex flex-col' onSubmit={handleSubmit}>
+    <form className='flex flex-col p-4' onSubmit={handleSubmit}>
         <h3 className='font-bold'> Add a New Exercise</h3>
 
         <label>Name:</label>
         <input type='text' onChange={(e) => setTitle(e.target.value)} value={title}
-        className={emptyField.includes('title') ? 'border-2 border-red-500 w-1/2' : 'w-1/2'}/>
+        className={emptyField.includes('title') ? 'border-2 border-red-500 w-1/2' : 'w-1/2 bg-gray-100 rounded-md'}/>
 
         <label>Sets:</label>
         <input type='number' onChange={(e) => setSets(e.target.value)} value={sets}
-        className={emptyField.includes('sets') ? 'border-2 border-red-500 w-1/2' : 'w-1/2'}/>
+        className={emptyField.includes('sets') ? 'border-2 border-red-500 w-1/2' : 'w-1/2 bg-gray-100 rounded-md'}/>
 
         <label>Reps:</label>
         <input type='number' onChange={(e) => setReps(e.target.value)} value={reps}

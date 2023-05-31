@@ -24,7 +24,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <div className='flex flex-col md:flex-row'>
       {workouts && workouts.map((workout) => (
         <WorkoutDetails key={workout._id} workout={workout}/>
       ))}

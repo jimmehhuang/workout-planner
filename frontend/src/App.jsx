@@ -5,7 +5,7 @@ import Home from './pages/Home'
 
 function App() {
   return (
-      <div className=''>  
+      <div className='bg-gray-200 min-h-screen'>  
         <BrowserRouter>
         {/* pages/components within brower router */}
           <Navbar/>

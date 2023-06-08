@@ -48,8 +48,9 @@ const AddWorkout = () => {
   }
 
   return (
-    <form className='flex flex-col p-4' onSubmit={handleSubmit}>
-        <h3 className='font-bold'> Add a New Exercise</h3>
+    <div className='bg-white m-2'>
+      <form className='flex flex-col p-2' onSubmit={handleSubmit}>
+        <h3 className='font-bold'>New Workout</h3>
 
         <label>Name:</label>
         <input type='text' onChange={(e) => setTitle(e.target.value)} value={title}
@@ -61,19 +62,20 @@ const AddWorkout = () => {
 
         <label>Reps:</label>
         <input type='number' onChange={(e) => setReps(e.target.value)} value={reps}
-        className='w-1/2'/>
+        className='w-1/2 bg-gray-100'/>
 
         <label>Weight:</label>
         <input type='number' onChange={(e) => setWeight(e.target.value)} value={weight}
-        className='w-1/2'/>
+        className='w-1/2 bg-gray-100'/>
 
         <label>Notes:</label>
         <input type='text' onChange={(e) => setNotes(e.target.value)} value={notes}
-        className='w-1/2'/>
+        className='w-1/2 bg-gray-100'/>
 
         <button className='w-1/3 mx-4 bg-blue-600 text-white'>Add</button>
         {error && <div>{error}</div>}
     </form>
+  </div>
   )
 }
 

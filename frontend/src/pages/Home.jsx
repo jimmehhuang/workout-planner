@@ -5,7 +5,7 @@ import {useWorkoutContext} from '../hooks/useWorkoutContext'
 import WorkoutDetails from '../components/WorkoutDetails'
 import AddWorkout from '../components/AddWorkout'
 
-const Home = () => {
+const Home = ({addVisibility}) => {
 
   const {workouts, dispatch} = useWorkoutContext()
 
@@ -25,10 +25,10 @@ const Home = () => {
 
   return (
     <div className='flex flex-col md:flex-row'>
+      {addVisibility && <AddWorkout/>}
       {workouts && workouts.map((workout) => (
         <WorkoutDetails key={workout._id} workout={workout}/>
       ))}
-      <AddWorkout/>
     </div>
   )
 }

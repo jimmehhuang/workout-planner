@@ -24,7 +24,7 @@ const Home = ({addVisibility}) => {
   }, [])
 
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className='flex flex-col justify-center w-3/4 md:w-1/2 mx-auto'>
       {addVisibility && <AddWorkout/>}
       {workouts && workouts.map((workout) => (
         <WorkoutDetails key={workout._id} workout={workout}/>

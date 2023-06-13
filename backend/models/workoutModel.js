@@ -2,30 +2,26 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+// format for the workout model
+const categorySchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    sets: Number,
+    reps: Number,
+    weight: Number,
+    notes: String
+})
+
+// format for day model
 const workoutSchema = new Schema({
     title: {
         type: String,
-        required: true
     },
-    sets: {
-        type: Number,
-        required: true
-    },
-    reps: {
-        type: Number,
-        required: true
-    },
-    weight: {
-        type: Number,
-        required: true
-    },
-    notes: {
-        type: String,
-        required: false
+    categories: {
+        type: [categorySchema]
     }
-}, 
-// timestamps when the model was created
-{timestamps: true}
-)
+})
 
 module.exports = mongoose.model('Workout', workoutSchema)

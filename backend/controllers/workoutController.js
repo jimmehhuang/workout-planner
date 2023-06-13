@@ -1,4 +1,4 @@
-// functions to call CRUD operations without clogging up main JS route
+// functions to call CRUD operations without clogging up main workouts.js route
 
 const Workout = require('../models/workoutModel')
 const mongoose = require('mongoose')
@@ -30,18 +30,12 @@ const getWorkout = async (req, res) => {
 
 // CREATE new workout
 const createWorkout = async (req, res) => {
-    const {title, sets, reps, weight, notes} = req.body
+    const {title, categories} = req.body
 
     let emptyField = []
 
     if(!title) {
         emptyField.push('title')
-    }
-    if(!sets) {
-        emptyField.push('sets')
-    }
-    if(!weight) {
-        emptyField.push('weight')
     }
     if(emptyField.length > 0) {
         return res.status(400).json({error: 'Please fill in the required fields.', emptyField})
@@ -49,7 +43,7 @@ const createWorkout = async (req, res) => {
 
     // adds a document to mongoDB
     try{
-        const workout = await Workout.create({title, sets, reps, weight, notes})
+        const workout = await Workout.create({title, categories})
         res.status(200).json(workout)
     } catch(error) {
         res.status(400).json({error: error.message})
